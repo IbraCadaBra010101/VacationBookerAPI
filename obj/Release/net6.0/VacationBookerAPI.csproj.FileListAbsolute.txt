@@ -89,3 +89,6 @@ C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\obj\Release\ne
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\obj\Release\net6.0\ref\VacationBookerAPI.dll
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\obj\Release\net6.0\VacationBookerAPI.pdb
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\obj\Release\net6.0\VacationBookerAPI.genruntimeconfig.cache
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Release\net6.0\VacationBookerAPI.staticwebassets.runtime.json
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Release\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Release\net6.0\Microsoft.AspNetCore.Identity.UI.dll

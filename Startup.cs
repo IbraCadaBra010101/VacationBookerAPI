@@ -49,7 +49,7 @@ namespace VacationBookerAPI
             
             services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
             
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AuthenticationContext>();
             
             
