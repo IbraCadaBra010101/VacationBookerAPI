@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VacationBookerAPI.Entities;
 
-namespace VacationBookerAPI.Migrations;
+namespace VacationBookerAPI.Migrations;  
 
 public class DataContext : DbContext
 {

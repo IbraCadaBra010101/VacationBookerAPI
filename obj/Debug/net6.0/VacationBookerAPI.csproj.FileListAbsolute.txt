@@ -89,3 +89,6 @@ C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\System.Web.Http.Cors.dll
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\VacationBookerAPI.staticwebassets.runtime.json
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\imahdi\RiderProjects\VacationBookerAPI\VacationBookerAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll

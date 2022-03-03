@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using VacationBookerAPI.Entities;
 using VacationBookerAPI.Helpers;
 using VacationBookerAPI.Interfaces;
 using VacationBookerAPI.Migrations;
@@ -35,17 +38,26 @@ namespace VacationBookerAPI
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
+             
             });
-
-            //Usually called the dependency injection container...
-
-            //Set up our data connection
+            
             services.AddDbContext<DataContext>(options =>
             {
-                //options.UseSqlite(_config.GetConnectionString("DefaultConnection"));
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
-
+            
+            
+            services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<AuthenticationContext>();
+            
+            
+            services.AddDbContext<AuthenticationContext>(options =>
+            {
+                options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
+            });
+            
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
@@ -72,7 +84,6 @@ namespace VacationBookerAPI
                 .First();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -81,12 +92,11 @@ namespace VacationBookerAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
-
+            
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(PolicyName);
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
