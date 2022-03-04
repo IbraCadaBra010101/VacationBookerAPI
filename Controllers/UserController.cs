@@ -44,6 +44,4 @@ public class UserController : ControllerBase
             throw e;
         }
     }
-    
-    
 }
