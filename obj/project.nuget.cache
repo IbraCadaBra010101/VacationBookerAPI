@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wgn0jFJc+Vpx++fQWBD5gV5AF/5pC5XRGUTKX5af1kyuPdgipCtAsMNIdhgWji6nWHjsWJvEx23E1VlLzxVryQ==",
+  "dgSpecHash": "u4lXe+f95NyiRWNekTxLNoYC4yMQsvhjEotPXzDTYBoFH14TpgS5UZ10S48B1p8Uihx9D73zSKgNzmp/UgMs9Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\VacationBookerAPI.csproj",
+  "projectFilePath": "C:\\Users\\imahdi\\VacationBookerAPI\\VacationBookerAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\imahdi\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\imahdi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

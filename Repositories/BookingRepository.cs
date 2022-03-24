@@ -16,9 +16,7 @@ public class BookingRepository : IBookingRepository
 
     public async Task<IEnumerable<Booking>> GetBookings()
     {
-        return await _context.Booking
-            .Include(b => b.Employee)
-            .ToListAsync();
+        return await _context.Booking.ToListAsync();
     }
 
     public async Task<Booking?> GetBookingById(Guid id)

@@ -12,8 +12,8 @@ using VacationBookerAPI.Migrations;
 namespace VacationBookerAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220301105335_initCreate")]
-    partial class initCreate
+    [Migration("20220324135412_initialcreate")]
+    partial class initialcreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,6 +29,9 @@ namespace VacationBookerAPI.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ApplicationStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("BookingType")
                         .HasColumnType("int");

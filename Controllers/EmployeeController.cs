@@ -78,19 +78,23 @@ public class EmployeesController : ControllerBase
     public async Task<IActionResult> UpdateEmployee(Guid id, EmployeeDto employee)
     {
         var employeeDb = await _employeeRepository.GetEmployeeById(id);
+        var departmentDb = await _departmentRepository.GetDepartmentById(employee.DepartmentId);
+        var managerDb = await _employeeRepository.GetEmployeeById(employee.ManagerId);
         if (employeeDb == null) return NotFound();
 
         employeeDb.FirstName = employee.FirstName;
         employeeDb.LastName = employee.LastName;
         employeeDb.RoleTitle = employee.RoleTitle;
         employeeDb.EmailAddress = employee.EmailAddress;
+        employeeDb.Manager = managerDb;
+        employeeDb.Department = departmentDb;
 
         if (employeeDb.Department != null && employeeDb.Department.Id != employee.DepartmentId)
         {
             var department = await _departmentRepository.GetDepartmentById(employee.DepartmentId);
             employeeDb.Department = department;
         }
-
+        
         _employeeRepository.UpdateEmployee(employeeDb);
         await _employeeRepository.SaveAllAsync();
 

@@ -28,6 +28,9 @@ namespace VacationBookerAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("ApplicationStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("BookingType")
                         .HasColumnType("int");
 

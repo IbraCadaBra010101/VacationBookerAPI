@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\VacationBookerAPI.csproj": {}
+    "C:\\Users\\imahdi\\VacationBookerAPI\\VacationBookerAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\VacationBookerAPI.csproj": {
+    "C:\\Users\\imahdi\\VacationBookerAPI\\VacationBookerAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\VacationBookerAPI.csproj",
+        "projectUniqueName": "C:\\Users\\imahdi\\VacationBookerAPI\\VacationBookerAPI.csproj",
         "projectName": "VacationBookerAPI",
-        "projectPath": "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\VacationBookerAPI.csproj",
+        "projectPath": "C:\\Users\\imahdi\\VacationBookerAPI\\VacationBookerAPI.csproj",
         "packagesPath": "C:\\Users\\imahdi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\imahdi\\RiderProjects\\VacationBookerAPI\\VacationBookerAPI\\obj\\",
+        "outputPath": "C:\\Users\\imahdi\\VacationBookerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\imahdi\\AppData\\Roaming\\NuGet\\NuGet.Config",

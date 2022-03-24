@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VacationBookerAPI.Migrations
 {
-    public partial class initCreate : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -59,6 +59,7 @@ namespace VacationBookerAPI.Migrations
                     ToDateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NumberOfDays = table.Column<int>(type: "int", nullable: false),
                     BookingType = table.Column<int>(type: "int", nullable: false),
+                    ApplicationStatus = table.Column<int>(type: "int", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EmployeeFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeLastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
