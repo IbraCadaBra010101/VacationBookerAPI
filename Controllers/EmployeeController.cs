@@ -16,8 +16,11 @@ public class EmployeesController : ControllerBase
     private readonly IMapper _mapper;
 
 
-    public EmployeesController(IEmployeeRepository employeeRepository, IDepartmentRepository departmentRepository,
-        IMapper mapper)
+    public EmployeesController(
+        IEmployeeRepository employeeRepository, 
+        IDepartmentRepository departmentRepository,
+        IMapper mapper
+        )
     {
         _employeeRepository = employeeRepository;
         _departmentRepository = departmentRepository;
@@ -30,8 +33,10 @@ public class EmployeesController : ControllerBase
         if (!ModelState.IsValid) throw new ValidationException();
         if (employee == null) throw new NullReferenceException();
 
-        var departmentDb = await _departmentRepository.GetDepartmentById(employee.DepartmentId);
-        var managerDb = await _employeeRepository.GetEmployeeById(employee.ManagerId);
+        var departmentDb = 
+            await _departmentRepository.GetDepartmentById(employee.DepartmentId);
+        var managerDb = 
+            await _employeeRepository.GetEmployeeById(employee.ManagerId);
 
         var dbEmployee = new Employee
         {

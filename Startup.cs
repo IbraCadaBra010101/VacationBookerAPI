@@ -20,12 +20,8 @@ namespace VacationBookerAPI
         public Startup(IConfiguration config)
         {
             _config = config;
-            //Configuration = configuration;
         }
 
-        //public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors(opt =>
@@ -37,32 +33,43 @@ namespace VacationBookerAPI
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
-             
             });
-            
+
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
             
-            
             services.AddDbContext<AuthenticationContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                // ADD THESE APPSSETTINGS IN A JSON FILE. 
+                options.Password.RequiredLength = 8;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredUniqueChars = 5;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<AuthenticationContext>();
             
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<AuthenticationContext>();
-            
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "Account/Login";
+                options.AccessDeniedPath = "Account/AccessDenied";
+            });
             
             services.AddDbContext<AuthenticationContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
-            
+
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
-
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
-
             services.AddControllers(options => { options.InputFormatters.Insert(0, GetJsonPatchInputFormatter()); });
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "API", Version = "v1"}); });
         }
@@ -80,7 +87,7 @@ namespace VacationBookerAPI
                 .Value
                 .InputFormatters
                 .OfType<NewtonsoftJsonPatchInputFormatter>()
-                .First();
+                .First(); 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -91,11 +98,12 @@ namespace VacationBookerAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
-            
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors(PolicyName);
             app.UseAuthorization();
+            app.UseAuthentication();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

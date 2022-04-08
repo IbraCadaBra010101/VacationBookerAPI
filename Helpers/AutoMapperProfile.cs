@@ -17,8 +17,8 @@ namespace VacationBookerAPI.Helpers
             CreateMap<BookingDto, Booking>();
             CreateMap<Booking, BookingDto>();
 
-            CreateMap<User, UserModel>();
-            CreateMap<UserModel,User>();
+            // CreateMap<Register, UserModel>();
+            // CreateMap<UserModel,User>();
         }
     }
 }

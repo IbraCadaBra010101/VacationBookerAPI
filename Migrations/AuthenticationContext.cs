@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using VacationBookerAPI.Entities;
 
 namespace VacationBookerAPI.Migrations;
 
-public class AuthenticationContext : IdentityDbContext<User>
+public class AuthenticationContext : IdentityDbContext
 {
-    private DbSet<User> User { get; set; }
+    
 
     public AuthenticationContext(DbContextOptions<AuthenticationContext> options) : base(options)
     {
+        
     }
 }
